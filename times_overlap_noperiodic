@@ -1,0 +1,68 @@
+mpirun -np 1 ./main_noplot_overlapping -n 300 -p 0 -v 0 -o 0 -e 300 -x 1000 -y 1000
+---------Rank: 0 	 Elapsed time:2.788096---------
+total injected energy is 90000, system energy is 89340.4 ( in avg 0.0893404 per grid point)
+---------Rank: 0 	 Elapsed time:2.989612---------
+total injected energy is 90000, system energy is 89274.2 ( in avg 0.0892742 per grid point)
+---------Rank: 0 	 Elapsed time:2.938515---------
+total injected energy is 90000, system energy is 88406.7 ( in avg 0.0884067 per grid point)
+---------Rank: 0 	 Elapsed time:2.765261---------
+total injected energy is 90000, system energy is 88421.1 ( in avg 0.0884211 per grid point)
+
+
+mpirun -np 2 ./main_noplot_overlapping -n 300 -p 0 -v 0 -o 0 -e 300 -x 1000 -y 1000
+---------Rank: 0 	 Elapsed time:1.577495---------
+---------Rank: 1 	 Elapsed time:1.583201---------
+total injected energy is 90000, system energy is 89168.5 ( in avg 0.178337 per grid point)
+---------Rank: 0 	 Elapsed time:1.566734---------
+---------Rank: 1 	 Elapsed time:1.572214---------
+total injected energy is 90000, system energy is 88494.2 ( in avg 0.176988 per grid point)
+---------Rank: 0 	 Elapsed time:1.589045---------
+---------Rank: 1 	 Elapsed time:1.594806---------
+total injected energy is 90000, system energy is 89087.7 ( in avg 0.178175 per grid point)
+---------Rank: 0 	 Elapsed time:1.538995---------
+---------Rank: 1 	 Elapsed time:1.544550---------
+total injected energy is 90000, system energy is 88349.6 ( in avg 0.176699 per grid point)
+
+
+mpirun -np 3 ./main_noplot_overlapping -n 300 -p 0 -v 0 -o 0 -e 300 -x 1000 -y 1000
+---------Rank: 0 	 Elapsed time:1.135950---------
+---------Rank: 2 	 Elapsed time:1.135981---------
+---------Rank: 1 	 Elapsed time:1.140281---------
+total injected energy is 90000, system energy is 88491.8 ( in avg 0.264946 per grid point)
+---------Rank: 0 	 Elapsed time:1.132614---------
+---------Rank: 2 	 Elapsed time:1.132625---------
+---------Rank: 1 	 Elapsed time:1.137189---------
+total injected energy is 90000, system energy is 88729.8 ( in avg 0.265658 per grid point)
+---------Rank: 0 	 Elapsed time:1.096356---------
+---------Rank: 2 	 Elapsed time:1.096360---------
+---------Rank: 1 	 Elapsed time:1.099933---------
+total injected energy is 90000, system energy is 88414.2 ( in avg 0.264713 per grid point)
+---------Rank: 0 	 Elapsed time:1.161105---------
+---------Rank: 2 	 Elapsed time:1.160034---------
+---------Rank: 1 	 Elapsed time:1.165252---------
+total injected energy is 90000, system energy is 88051.1 ( in avg 0.263626 per grid point)
+
+
+mpirun -np 4 ./main_noplot_overlapping -n 300 -p 0 -v 0 -o 0 -e 300 -x 1000 -y 1000
+---------Rank: 0 	 Elapsed time:0.899102---------
+---------Rank: 2 	 Elapsed time:0.901986---------
+---------Rank: 1 	 Elapsed time:0.901910---------
+---------Rank: 3 	 Elapsed time:0.903539---------
+total injected energy is 90000, system energy is 88397.9 ( in avg 0.353592 per grid point)
+---------Rank: 1 	 Elapsed time:0.874491---------
+---------Rank: 2 	 Elapsed time:0.875754---------
+---------Rank: 3 	 Elapsed time:0.875620---------
+---------Rank: 0 	 Elapsed time:0.876893---------
+total injected energy is 90000, system energy is 88494.9 ( in avg 0.35398 per grid point)
+---------Rank: 2 	 Elapsed time:0.892049---------
+---------Rank: 3 	 Elapsed time:0.895320---------
+---------Rank: 0 	 Elapsed time:0.895425---------
+---------Rank: 1 	 Elapsed time:0.898803---------
+total injected energy is 90000, system energy is 88670.5 ( in avg 0.354682 per grid point)
+---------Rank: 2 	 Elapsed time:0.897055---------
+---------Rank: 3 	 Elapsed time:0.900527---------
+---------Rank: 0 	 Elapsed time:0.900564---------
+---------Rank: 1 	 Elapsed time:0.903650---------
+total injected energy is 90000, system energy is 87937.6 ( in avg 0.351751 per grid point)
+
+
