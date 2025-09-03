@@ -1,0 +1,6 @@
+rm maindebug 
+mpicc -o maindebug -Iinclude src/stencil_template_parallel.c -g
+mpiexec -np 2 gnome-terminal --wait -- gdb -x ./gdb_commands ./maindebug
+
+
+python plot_parallel.py data_parallel -x 128 -y 256 --sx 1 --sy 2 -n 100 --save parallel.mp4
