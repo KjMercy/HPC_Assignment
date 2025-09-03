@@ -119,13 +119,13 @@ int main(int argc, char **argv)
     /*  Dump of data for plotting
         Credits: Davide Zorzetto
     */
-    char filename[100];
-    sprintf(filename, "./data_parallel/%d_plane_%05d.bin", Rank, iter);
-    int dump_status = dump(planes[!current].data, planes[!current].size, filename);
-    if (dump_status != 0)
-    {
-      fprintf(stderr, "Error in dump_status. Exit with %d\n", dump_status);
-    }
+    // char filename[100];
+    // sprintf(filename, "./data_parallel/%d_plane_%05d.bin", Rank, iter);
+    // int dump_status = dump(planes[!current].data, planes[!current].size, filename);
+    // if (dump_status != 0)
+    // {
+    //   fprintf(stderr, "Error in dump_status. Exit with %d\n", dump_status);
+    // }
     /******************** */
 
     /* swap plane indexes for the new iteration */
@@ -133,6 +133,7 @@ int main(int argc, char **argv)
   }
 
   t1 = MPI_Wtime() - t1;
+  printf("---------Rank: %d \t Elapsed time:%.6f---------\n", Rank, t1);
 
   output_energy_stat(-1, &planes[!current], Niterations * Nsources * energy_per_source, Rank, &myCOMM_WORLD);
 

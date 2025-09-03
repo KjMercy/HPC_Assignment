@@ -1,0 +1,146 @@
+kjanija@kjfedora:~/Kj/U/UniTs/HPC/High-Performance-Computing-2024/Assignment$ mpirun -np 1 ./main_noplot -n 500 -p 1 -v 1 -e 300 -x 1000 -y 1000
+---------Rank: 0         Elapsed time:9.856740---------
+total injected energy is 150000, system energy is 150000 ( in avg 0.15 per grid point)
+
+kjanija@kjfedora:~/Kj/U/UniTs/HPC/High-Performance-Computing-2024/Assignment$ mpirun -np 2 ./main_noplot -n 500 -p 1 -v 1 -e 300 -x 1000 -y 1000
+LOOP
+
+kjanija@kjfedora:~/Kj/U/UniTs/HPC/High-Performance-Computing-2024/Assignment$ mpirun -np 2 ./main_noplot -n 500 -p 0 -v 1 -e 300 -x 1000 -y 1000
+---------Rank: 0         Elapsed time:3.889303---------
+---------Rank: 1         Elapsed time:3.889279---------
+total injected energy is 150000, system energy is 148892 ( in avg 0.297785 per grid point)
+
+------------------------------------------------------------------------------------------------------------------------
+                                        I precedenti non vanno bene
+
+####################################################################NON PERIODIC########################################
+
+kjanija@kjfedora:~/Kj/U/UniTs/HPC/High-Performance-Computing-2024/Assignment$ mpirun -np 1 ./main_noplot -n 300 -p 0 -v 0 -o 0 -e 300 -x 1000 -y 1000
+---------Rank: 0         Elapsed time:2.426063---------
+total injected energy is 90000, system energy is 88304.6 ( in avg 0.0883046 per grid point)
+---------Rank: 0         Elapsed time:1.961760---------
+total injected energy is 90000, system energy is 88818.6 ( in avg 0.0888186 per grid point)
+---------Rank: 0         Elapsed time:2.018031---------
+total injected energy is 90000, system energy is 88279.4 ( in avg 0.0882794 per grid point)
+---------Rank: 0         Elapsed time:1.988272---------
+total injected energy is 90000, system energy is 88033.7 ( in avg 0.0880337 per grid point)
+
+kjanija@kjfedora:~/Kj/U/UniTs/HPC/High-Performance-Computing-2024/Assignment$ mpirun -np 2 ./main_noplot -n 300 -p 0 -v 0 -o 0 -e 300 -x 1000 -y 1000
+---------Rank: 0         Elapsed time:1.124027---------
+---------Rank: 1         Elapsed time:1.124008---------
+total injected energy is 90000, system energy is 89148 ( in avg 0.178296 per grid point)
+---------Rank: 0         Elapsed time:1.109732---------
+---------Rank: 1         Elapsed time:1.110276---------
+total injected energy is 90000, system energy is 88776 ( in avg 0.177552 per grid point)
+---------Rank: 0         Elapsed time:1.146066---------
+---------Rank: 1         Elapsed time:1.146822---------
+total injected energy is 90000, system energy is 89105.2 ( in avg 0.17821 per grid point)
+---------Rank: 0         Elapsed time:1.084222---------
+---------Rank: 1         Elapsed time:1.084774---------
+total injected energy is 90000, system energy is 88325.9 ( in avg 0.176652 per grid point)
+
+kjanija@kjfedora:~/Kj/U/UniTs/HPC/High-Performance-Computing-2024/Assignment$ mpirun -np 3 ./main_noplot -n 300 -p 0 -v 0 -o 0 -e 300 -x 1000 -y 1000
+---------Rank: 1         Elapsed time:0.840320---------
+---------Rank: 0         Elapsed time:0.840502---------
+---------Rank: 2         Elapsed time:0.840284---------
+total injected energy is 90000, system energy is 88180.5 ( in avg 0.264014 per grid point)
+---------Rank: 2         Elapsed time:0.796215---------
+---------Rank: 0         Elapsed time:0.797083---------
+---------Rank: 1         Elapsed time:0.797156---------
+total injected energy is 90000, system energy is 87587.9 ( in avg 0.262239 per grid point)
+---------Rank: 2         Elapsed time:0.820095---------
+---------Rank: 1         Elapsed time:0.821941---------
+---------Rank: 0         Elapsed time:0.822412---------
+total injected energy is 90000, system energy is 87589.8 ( in avg 0.262245 per grid point)
+---------Rank: 2         Elapsed time:0.800479---------
+---------Rank: 0         Elapsed time:0.800956---------
+---------Rank: 1         Elapsed time:0.801559---------
+total injected energy is 90000, system energy is 88061.7 ( in avg 0.263658 per grid point)
+
+kjanija@kjfedora:~/Kj/U/UniTs/HPC/High-Performance-Computing-2024/Assignment$ mpirun -np 4 ./main_noplot -n 300 -p 0 -v 0 -o 0 -e 300 -x 1000 -y 1000
+---------Rank: 0         Elapsed time:0.692644---------
+---------Rank: 3         Elapsed time:0.692539---------
+---------Rank: 2         Elapsed time:0.693451---------
+---------Rank: 1         Elapsed time:0.693351---------
+total injected energy is 90000, system energy is 88868.8 ( in avg 0.355475 per grid point)
+---------Rank: 0         Elapsed time:0.685823---------
+---------Rank: 2         Elapsed time:0.685948---------
+---------Rank: 1         Elapsed time:0.686577---------
+---------Rank: 3         Elapsed time:0.686904---------
+total injected energy is 90000, system energy is 89313.8 ( in avg 0.357255 per grid point)
+---------Rank: 3         Elapsed time:0.691489---------
+---------Rank: 2         Elapsed time:0.692028---------
+---------Rank: 0         Elapsed time:0.692167---------
+---------Rank: 1         Elapsed time:0.691760---------
+total injected energy is 90000, system energy is 88176.6 ( in avg 0.352706 per grid point)
+---------Rank: 3         Elapsed time:0.680111---------
+---------Rank: 2         Elapsed time:0.680366---------
+---------Rank: 1         Elapsed time:0.681209---------
+---------Rank: 0         Elapsed time:0.681402---------
+total injected energy is 90000, system energy is 88561.3 ( in avg 0.354245 per grid point)
+
+########################################################################PERIODIC########################################
+
+kjanija@kjfedora:~/Kj/U/UniTs/HPC/High-Performance-Computing-2024/Assignment$ mpirun -np 1 ./main_noplot -n 300 -p 1 -v 0 -o 0 -e 300 -x 1000 -y 1000
+---------Rank: 0         Elapsed time:1.855341---------
+total injected energy is 90000, system energy is 90000 ( in avg 0.09 per grid point)
+---------Rank: 0         Elapsed time:1.999399---------
+total injected energy is 90000, system energy is 90000 ( in avg 0.09 per grid point)
+---------Rank: 0         Elapsed time:1.804851---------
+total injected energy is 90000, system energy is 90000 ( in avg 0.09 per grid point)
+---------Rank: 0         Elapsed time:1.837624---------
+total injected energy is 90000, system energy is 90000 ( in avg 0.09 per grid point)
+
+kjanija@kjfedora:~/Kj/U/UniTs/HPC/High-Performance-Computing-2024/Assignment$ mpirun -np 2 ./main_noplot -n 300 -p 1 -v 0 -o 0 -e 300 -x 1000 -y 1000
+---------Rank: 1         Elapsed time:1.100514---------
+---------Rank: 0         Elapsed time:1.100587---------
+total injected energy is 90000, system energy is 90000 ( in avg 0.18 per grid point)
+---------Rank: 1         Elapsed time:1.073134---------
+---------Rank: 0         Elapsed time:1.073267---------
+total injected energy is 90000, system energy is 90000 ( in avg 0.18 per grid point)
+---------Rank: 0         Elapsed time:1.110590---------
+---------Rank: 1         Elapsed time:1.110682---------
+total injected energy is 90000, system energy is 90000 ( in avg 0.18 per grid point)
+---------Rank: 1         Elapsed time:1.082843---------
+---------Rank: 0         Elapsed time:1.083696---------
+total injected energy is 90000, system energy is 90000 ( in avg 0.18 per grid point)
+
+kjanija@kjfedora:~/Kj/U/UniTs/HPC/High-Performance-Computing-2024/Assignment$ mpirun -np 3 ./main_noplot -n 300 -p 1 -v 0 -o 0 -e 300 -x 1000 -y 1000
+---------Rank: 1         Elapsed time:0.791943---------
+---------Rank: 2         Elapsed time:0.792008---------
+---------Rank: 0         Elapsed time:0.792024---------
+total injected energy is 90000, system energy is 90000 ( in avg 0.269461 per grid point)
+---------Rank: 2         Elapsed time:0.749485---------
+---------Rank: 0         Elapsed time:0.750962---------
+---------Rank: 1         Elapsed time:0.750852---------
+total injected energy is 90000, system energy is 90000 ( in avg 0.269461 per grid point)
+---------Rank: 1         Elapsed time:0.809067---------
+---------Rank: 2         Elapsed time:0.809369---------
+---------Rank: 0         Elapsed time:0.809503---------
+total injected energy is 90000, system energy is 90000 ( in avg 0.269461 per grid point)
+---------Rank: 2         Elapsed time:0.775715---------
+---------Rank: 1         Elapsed time:0.775922---------
+---------Rank: 0         Elapsed time:0.775950---------
+total injected energy is 90000, system energy is 90000 ( in avg 0.269461 per grid point)
+
+kjanija@kjfedora:~/Kj/U/UniTs/HPC/High-Performance-Computing-2024/Assignment$ mpirun -np 4 ./main_noplot -n 300 -p 1 -v 0 -o 0 -e 300 -x 1000 -y 1000
+---------Rank: 3         Elapsed time:0.826366---------
+---------Rank: 2         Elapsed time:0.827103---------
+---------Rank: 1         Elapsed time:0.827283---------
+---------Rank: 0         Elapsed time:0.827524---------
+total injected energy is 90000, system energy is 90000 ( in avg 0.36 per grid point)
+---------Rank: 2         Elapsed time:0.725912---------
+---------Rank: 3         Elapsed time:0.726020---------
+---------Rank: 0         Elapsed time:0.726487---------
+---------Rank: 1         Elapsed time:0.726514---------
+total injected energy is 90000, system energy is 90000 ( in avg 0.36 per grid point)
+---------Rank: 2         Elapsed time:0.809216---------
+---------Rank: 0         Elapsed time:0.809515---------
+---------Rank: 1         Elapsed time:0.809125---------
+---------Rank: 3         Elapsed time:0.810015---------
+total injected energy is 90000, system energy is 90000 ( in avg 0.36 per grid point)
+---------Rank: 2         Elapsed time:0.676691---------
+---------Rank: 3         Elapsed time:0.677016---------
+---------Rank: 1         Elapsed time:0.677068---------
+---------Rank: 0         Elapsed time:0.677172---------
+total injected energy is 90000, system energy is 90000 ( in avg 0.36 per grid point)
