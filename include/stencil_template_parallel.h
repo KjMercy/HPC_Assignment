@@ -39,16 +39,28 @@ typedef struct
     vec2_t size;
 } plane_t;
 
-extern void fill_buffers(plane_t *, 
-                        buffers_t *, 
-                        vec2_t,
-                        int *);
+extern void fill_buffers(plane_t *,
+                         buffers_t *,
+                         vec2_t,
+                         int *);
 
 extern void perform_halo_comms(buffers_t *, int *, MPI_Comm *, MPI_Request *, vec2_t);
 
 extern void copy_halo_data(plane_t *, buffers_t *, vec2_t, int *);
 
 extern void zero_borders(plane_t *, int *, vec2_t);
+
+extern inline double stencil_computation(const double *restrict,
+                                         const uint,
+                                         const uint,
+                                         const uint);
+
+extern inline int update_inner_plane(const plane_t *, plane_t *);
+
+extern inline int update_border_plane(const int,
+                                      const vec2_t,
+                                      const plane_t *,
+                                      plane_t *);
 
 extern int inject_energy(const int,
                          const int,
@@ -105,7 +117,7 @@ inline int inject_energy(const int periodic,
     for (int s = 0; s < Nsources; s++)
     {
         int x = Sources[s][_x_];
-        int y = Sources[s][_y_];        
+        int y = Sources[s][_y_];
 
         data[IDX(x, y)] += energy;
 
@@ -251,4 +263,4 @@ inline int get_total_energy(plane_t *plane,
     return 0;
 }
 
-extern int dump ( const double *data, const uint size[2], const char *filename);
+extern int dump(const double *data, const uint size[2], const char *filename);

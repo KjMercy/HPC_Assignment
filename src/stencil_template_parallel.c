@@ -92,24 +92,22 @@ int main(int argc, char **argv)
     //         --> can you overlap communication and compution in this way?
     perform_halo_comms(buffers, neighbours, &myCOMM_WORLD, reqs, planes[current].size);
 
+    // Let's update INNER plane
+    update_inner_plane(&planes[current], &planes[!current]);
+
     MPI_Status statuses[8];
     MPI_Waitall(8, reqs, statuses);
     // [C] copy the haloes data
     copy_halo_data(&planes[current], buffers, planes[current].size, neighbours);
 
-    // Noticed it is not necessary since the ghosts are already memset to 0 by
-    // the code provided by the prof in memory_allocate
-    //TODO: since periodic is set once and not changed, maybe there is a way I
-    //can tell this condition what to expect here 
-    // if (!periodic)
-    // {
-    //   zero_borders(&planes[0], neighbours, planes[0].size);
-    // }
+    // Finally let's update BORDERs
+    update_border_plane(periodic, N, &planes[current], &planes[!current]);
 
     /* --------------------------------------  */
     /* update grid points */
 
-    update_plane(periodic, N, &planes[current], &planes[!current]);
+    // Commented to verify if overlapping the two works
+    // update_plane(periodic, N, &planes[current], &planes[!current]);
 
     /* output if needed */
     if (output_energy_stat_perstep)
@@ -119,13 +117,13 @@ int main(int argc, char **argv)
     /*  Dump of data for plotting
         Credits: Davide Zorzetto
     */
-    // char filename[100];
-    // sprintf(filename, "./data_parallel/%d_plane_%05d.bin", Rank, iter);
-    // int dump_status = dump(planes[!current].data, planes[!current].size, filename);
-    // if (dump_status != 0)
-    // {
-    //   fprintf(stderr, "Error in dump_status. Exit with %d\n", dump_status);
-    // }
+    char filename[100];
+    sprintf(filename, "./data_parallel/%d_plane_%05d.bin", Rank, iter);
+    int dump_status = dump(planes[!current].data, planes[!current].size, filename);
+    if (dump_status != 0)
+    {
+      fprintf(stderr, "Error in dump_status. Exit with %d\n", dump_status);
+    }
     /******************** */
 
     /* swap plane indexes for the new iteration */
@@ -245,6 +243,18 @@ void copy_halo_data(plane_t *plane, buffers_t *buffers_ptr, vec2_t size, int *ne
 
 void zero_borders(plane_t *planes, int *neighbours, vec2_t size)
 {
+  // This [commented] code was right after the call of copy_halo_data(...) 
+  // inside the integration loop. I leave it here for reference, even though it 
+  // is not used.
+  // Noticed it is not necessary since the ghosts are already memset to 0 by
+  // the code provided by the prof in memory_allocate
+  //
+  // TODO: since periodic is set once and not changed, maybe there is a way I
+  // can tell this condition what to expect
+  // if (!periodic)
+  // {
+  //   zero_borders(&planes[0], neighbours, planes[0].size);
+  // }
   uint fx = size[_x_] + 2;
   uint fy = size[_y_] + 2;
 
