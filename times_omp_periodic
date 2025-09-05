@@ -1,0 +1,68 @@
+mpirun -np 1 ./main_omp_noplot -n 300 -p 1 -v 0 -o 0 -e 300 -x 1000 -y 1000
+---------Rank: 0 	 Elapsed time:0.500726---------
+total injected energy is 90000, system energy is 90000 ( in avg 0.09 per grid point)
+---------Rank: 0 	 Elapsed time:0.497270---------
+total injected energy is 90000, system energy is 90000 ( in avg 0.09 per grid point)
+---------Rank: 0 	 Elapsed time:0.491218---------
+total injected energy is 90000, system energy is 90000 ( in avg 0.09 per grid point)
+---------Rank: 0 	 Elapsed time:0.491529---------
+total injected energy is 90000, system energy is 90000 ( in avg 0.09 per grid point)
+
+
+mpirun -np 2 ./main_omp_noplot -n 300 -p 1 -v 0 -o 0 -e 300 -x 1000 -y 1000
+---------Rank: 1 	 Elapsed time:0.384306---------
+---------Rank: 0 	 Elapsed time:0.384459---------
+total injected energy is 90000, system energy is 90000 ( in avg 0.18 per grid point)
+---------Rank: 1 	 Elapsed time:0.378945---------
+---------Rank: 0 	 Elapsed time:0.379893---------
+total injected energy is 90000, system energy is 90000 ( in avg 0.18 per grid point)
+---------Rank: 0 	 Elapsed time:0.378558---------
+---------Rank: 1 	 Elapsed time:0.378558---------
+total injected energy is 90000, system energy is 90000 ( in avg 0.18 per grid point)
+---------Rank: 1 	 Elapsed time:0.413597---------
+---------Rank: 0 	 Elapsed time:0.414708---------
+total injected energy is 90000, system energy is 90000 ( in avg 0.18 per grid point)
+
+
+mpirun -np 3 ./main_omp_noplot -n 300 -p 1 -v 0 -o 0 -e 300 -x 1000 -y 1000
+---------Rank: 2 	 Elapsed time:0.361339---------
+---------Rank: 1 	 Elapsed time:0.362203---------
+---------Rank: 0 	 Elapsed time:0.362281---------
+total injected energy is 90000, system energy is 90000 ( in avg 0.269461 per grid point)
+---------Rank: 2 	 Elapsed time:0.355461---------
+---------Rank: 0 	 Elapsed time:0.356377---------
+---------Rank: 1 	 Elapsed time:0.356380---------
+total injected energy is 90000, system energy is 90000 ( in avg 0.269461 per grid point)
+---------Rank: 2 	 Elapsed time:0.368500---------
+---------Rank: 0 	 Elapsed time:0.369499---------
+---------Rank: 1 	 Elapsed time:0.369486---------
+total injected energy is 90000, system energy is 90000 ( in avg 0.269461 per grid point)
+---------Rank: 2 	 Elapsed time:0.371213---------
+---------Rank: 1 	 Elapsed time:0.372140---------
+---------Rank: 0 	 Elapsed time:0.372185---------
+total injected energy is 90000, system energy is 90000 ( in avg 0.269461 per grid point)
+
+
+mpirun -np 4 ./main_omp_noplot -n 300 -p 1 -v 0 -o 0 -e 300 -x 1000 -y 1000
+---------Rank: 0 	 Elapsed time:0.413368---------
+---------Rank: 2 	 Elapsed time:0.414288---------
+---------Rank: 1 	 Elapsed time:0.414280---------
+---------Rank: 3 	 Elapsed time:0.414785---------
+total injected energy is 90000, system energy is 90000 ( in avg 0.36 per grid point)
+---------Rank: 2 	 Elapsed time:0.346828---------
+---------Rank: 3 	 Elapsed time:0.348100---------
+---------Rank: 1 	 Elapsed time:0.348161---------
+---------Rank: 0 	 Elapsed time:0.350879---------
+total injected energy is 90000, system energy is 90000 ( in avg 0.36 per grid point)
+---------Rank: 3 	 Elapsed time:0.359031---------
+---------Rank: 2 	 Elapsed time:0.359803---------
+---------Rank: 1 	 Elapsed time:0.359815---------
+---------Rank: 0 	 Elapsed time:0.360354---------
+total injected energy is 90000, system energy is 90000 ( in avg 0.36 per grid point)
+---------Rank: 1 	 Elapsed time:0.391278---------
+---------Rank: 2 	 Elapsed time:0.391305---------
+---------Rank: 0 	 Elapsed time:0.391285---------
+---------Rank: 3 	 Elapsed time:0.392005---------
+total injected energy is 90000, system energy is 90000 ( in avg 0.36 per grid point)
+
+

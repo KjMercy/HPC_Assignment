@@ -1,5 +1,5 @@
 .vscode/
 *.mp4
 data_parallel/*
-test
 main_*
+*.tar.gz
