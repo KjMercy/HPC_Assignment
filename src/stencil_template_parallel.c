@@ -117,13 +117,13 @@ int main(int argc, char **argv)
     /*  Dump of data for plotting
         Credits: Davide Zorzetto
     */
-    // char filename[100];
-    // sprintf(filename, "./data_parallel/%d_plane_%05d.bin", Rank, iter);
-    // int dump_status = dump(planes[!current].data, planes[!current].size, filename);
-    // if (dump_status != 0)
-    // {
-    //   fprintf(stderr, "Error in dump_status. Exit with %d\n", dump_status);
-    // }
+    char filename[100];
+    sprintf(filename, "./data_parallel/%d_plane_%05d.bin", Rank, iter);
+    int dump_status = dump(planes[!current].data, planes[!current].size, filename);
+    if (dump_status != 0)
+    {
+      fprintf(stderr, "Error in dump_status. Exit with %d\n", dump_status);
+    }
     /******************** */
 
     /* swap plane indexes for the new iteration */
@@ -243,8 +243,8 @@ void copy_halo_data(plane_t *plane, buffers_t *buffers_ptr, vec2_t size, int *ne
 
 void zero_borders(plane_t *planes, int *neighbours, vec2_t size)
 {
-  // This [commented] code was right after the call of copy_halo_data(...) 
-  // inside the integration loop. I leave it here for reference, even though it 
+  // This [commented] code was right after the call of copy_halo_data(...)
+  // inside the integration loop. I leave it here for reference, even though it
   // is not used.
   // Noticed it is not necessary since the ghosts are already memset to 0 by
   // the code provided by the prof in memory_allocate
@@ -311,6 +311,7 @@ inline int update_inner_plane(const plane_t *oldplane,
   double *restrict old = oldplane->data;
   double *restrict new = newplane->data;
 
+#pragma omp parallel for collapse(2) schedule(static)
   for (uint j = 2; j <= ysize - 1; j++)
     for (uint i = 2; i <= xsize - 1; i++)
       new[IDX(i, j)] = stencil_computation(old, fxsize, i, j);
@@ -324,23 +325,25 @@ inline int update_border_plane(const int periodic,
                                const plane_t *oldplane,
                                plane_t *newplane)
 {
-  uint fxsize = oldplane->size[_x_] + 2;
-  uint fysize = oldplane->size[_y_] + 2;
+  uint register fxsize = oldplane->size[_x_] + 2;
+  uint register fysize = oldplane->size[_y_] + 2;
 
-  uint xsize = oldplane->size[_x_];
-  uint ysize = oldplane->size[_y_];
+  uint register xsize = oldplane->size[_x_];
+  uint register ysize = oldplane->size[_y_];
 
 #define IDX(i, j) ((j) * fxsize + (i))
 
   double *restrict old = oldplane->data;
   double *restrict new = newplane->data;
 
+#pragma omp parallel for schedule(static)
   for (uint j = 1; j <= ysize; j++)
   {
     new[IDX(1, j)] = stencil_computation(old, fxsize, 1, j);         // left border
     new[IDX(xsize, j)] = stencil_computation(old, fxsize, xsize, j); // right border
   }
 
+#pragma omp parallel for schedule(static)
   for (uint i = 1; i <= xsize; i++)
   {
     new[IDX(i, 1)] = stencil_computation(old, fxsize, i, 1);         // top border
@@ -352,8 +355,6 @@ inline int update_border_plane(const int periodic,
   {
     if (N[_x_] == 1)
     {
-      // propagate the boundaries as needed
-      // check the serial version
       for (uint j = 1; j <= ysize; j++)
       {
         new[IDX(0, j)] = new[IDX(xsize, j)];     // left ghost <-- right inner boundary
@@ -363,8 +364,6 @@ inline int update_border_plane(const int periodic,
 
     if (N[_y_] == 1)
     {
-      // propagate the boundaries as needed
-      // check the serial version
       for (uint i = 0; i <= xsize + 1; i++)
       {
         new[IDX(i, 0)] = new[IDX(i, ysize)];     // bottom ghost <-- top inner boundary

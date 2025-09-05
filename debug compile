@@ -1,6 +1,17 @@
+These are just notes for myself for how to debug and check the correctness
+
 rm maindebug 
+
+compile with:
 mpicc -o maindebug -Iinclude src/stencil_template_parallel.c -g
+
+or with:
+mpicc -o maindebug -O2 -fopenmp  -Iinclude src/stencil_template_parallel.c -g
+
+then execute with:
 mpiexec -np 2 gnome-terminal --wait -- gdb -x ./gdb_commands ./maindebug
 
-
+Another thing to theck the code is animate the heat expansion with:
 python plot_parallel.py data_parallel -x 128 -y 256 --sx 1 --sy 2 -n 100 --save parallel.mp4
+
+but make sure that you've compiled the code with the dump decommented
