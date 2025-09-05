@@ -17,7 +17,7 @@ export OMP_PROC_BIND=close
 module load openMPI/5.0.5
 
 # Qui ci va mpicc, mpirun etc
-mpicc -o main -march=native -O3 -std=c17 -fopenmp -Iinclude src/stencil_template_parallel.c
+mpicc -D_XOPEN_SOURCE=700 -o main -march=native -O3 -std=c17 -fopenmp -Iinclude src/stencil_template_parallel.c
 
 #for nt in 1 4 16 32 64 128
 for nt in 1 4
