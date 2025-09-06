@@ -2,10 +2,10 @@
 #SBATCH --nodes=1                   # 1 node
 #SBATCH --ntasks=1                  # total MPI tasks across nodes
 #SBATCH --ntasks-per-node=1
-#SBATCH --cpus-per-task=128          # OpenMP threads per MPI task
+#SBATCH --cpus-per-task=4           # OpenMP threads per MPI task
 #SBATCH --mem=0                     # use all available memory
 #SBATCH --partition=EPYC
-#SBATCH -t 00:30:00                 # 5 minutes for profiling and test runs
+#SBATCH -t 00:05:00                 # 5 minutes for profiling and test runs
 #SBATCH --job-name=HPC_Exam
 
 # Set OpenMP variables
@@ -24,5 +24,6 @@ for nt in 1 4
 do
     export OMP_NUM_THREADS=$nt
     echo "Running wih $nt threads"
-    srun --ntask=1 --cpu-per-task=$nt ./main -o 0 -e 300 -v 1 > output_${nt}.log
+    datetime=$(date +"%Y%m%d_%H%M%s)
+    srun --ntask=1 --cpu-per-task=$nt ./main -o 0 -e 300 -v 1 > ../outputs/output_${datetime}_1Task_${nt}Threads_.log
 done
