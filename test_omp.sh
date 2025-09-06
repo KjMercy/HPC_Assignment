@@ -25,5 +25,5 @@ do
     export OMP_NUM_THREADS=$nt
     echo "Running wih $nt threads"
     datetime=$(date +"%Y%m%d_%H%M%s")
-    srun --ntask=1 --cpu-per-task=$nt ./main -o 0 -e 300 -v 1 > ../outputs/output_${datetime}_1Task_${nt}Threads_.log
+    srun --ntasks=1 --cpus-per-task=$nt ./main -o 0 -e 300 -v 1 > ../outputs/output_${datetime}_1Task_${nt}Threads_.log
 done
