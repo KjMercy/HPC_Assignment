@@ -292,19 +292,19 @@ inline double stencil_computation(const double *restrict old,
                                   const uint j)
 {
   const uint idx = j * fxsize + i;
-  return old[idx] / 2.0 + (old[idx - 1] + old[idx + 1] +
-                           old[idx - fxsize] + old[idx + fxsize]) /
-                              4.0 / 2.0;
+  return old[idx] * 0.5 + (old[idx - 1] + old[idx + 1] +
+                           old[idx - fxsize] + old[idx + fxsize]) *
+                              0.125;
 }
 
 inline int update_inner_plane(const plane_t *oldplane,
                               plane_t *newplane)
 {
-  uint fxsize = oldplane->size[_x_] + 2;
-  uint fysize = oldplane->size[_y_] + 2;
+  uint register fxsize = oldplane->size[_x_] + 2;
+  // uint register fysize = oldplane->size[_y_] + 2;
 
-  uint xsize = oldplane->size[_x_];
-  uint ysize = oldplane->size[_y_];
+  uint register xsize = oldplane->size[_x_];
+  uint register ysize = oldplane->size[_y_];
 
 #define IDX(i, j) ((j) * fxsize + (i))
 
@@ -326,7 +326,7 @@ inline int update_border_plane(const int periodic,
                                plane_t *newplane)
 {
   uint register fxsize = oldplane->size[_x_] + 2;
-  uint register fysize = oldplane->size[_y_] + 2;
+  // uint register fysize = oldplane->size[_y_] + 2;
 
   uint register xsize = oldplane->size[_x_];
   uint register ysize = oldplane->size[_y_];

@@ -192,9 +192,9 @@ inline int update_plane(const int periodic,
             // HINT : check the serial version for some optimization
             //
             new[IDX(i, j)] =
-                old[IDX(i, j)] / 2.0 + (old[IDX(i - 1, j)] + old[IDX(i + 1, j)] +
-                                        old[IDX(i, j - 1)] + old[IDX(i, j + 1)]) /
-                                           4.0 / 2.0;
+                old[IDX(i, j)] * 0.5 + (old[IDX(i - 1, j)] + old[IDX(i + 1, j)] +
+                                        old[IDX(i, j - 1)] + old[IDX(i, j + 1)]) 
+                                        * 0.125;
         }
 
     if (periodic)
@@ -214,7 +214,7 @@ inline int update_plane(const int periodic,
         {
             // propagate the boundaries as needed
             // check the serial version
-            for (uint i = 0; i <= xsize + 1; i++)
+            for (uint i = 1; i <= xsize; i++)
             {
                 new[IDX(i, 0)] = new[IDX(i, ysize)];     // bottom ghost <-- top inner boundary
                 new[IDX(i, ysize + 1)] = new[IDX(i, 1)]; // top ghost <-- bottom inner boundary
