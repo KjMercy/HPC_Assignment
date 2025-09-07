@@ -13,6 +13,7 @@
 
 #include <omp.h>
 #include <mpi.h>
+#include <immintrin.h>
 
 #define NORTH 0
 #define SOUTH 1
@@ -49,6 +50,14 @@ extern void perform_halo_comms(buffers_t *, int *, MPI_Comm *, MPI_Request *, ve
 extern void copy_halo_data(plane_t *, buffers_t *, vec2_t, int *);
 
 extern void zero_borders(plane_t *, int *, vec2_t);
+
+extern inline int update_inner_plane_simd(const plane_t *,
+                                          plane_t *);
+
+extern inline int update_border_plane_simd(const int,
+                                           const vec2_t,
+                                           const plane_t *,
+                                           plane_t *);
 
 extern inline double stencil_computation(const double *restrict,
                                          const uint,
@@ -193,8 +202,8 @@ inline int update_plane(const int periodic,
             //
             new[IDX(i, j)] =
                 old[IDX(i, j)] * 0.5 + (old[IDX(i - 1, j)] + old[IDX(i + 1, j)] +
-                                        old[IDX(i, j - 1)] + old[IDX(i, j + 1)]) 
-                                        * 0.125;
+                                        old[IDX(i, j - 1)] + old[IDX(i, j + 1)]) *
+                                           0.125;
         }
 
     if (periodic)
@@ -248,12 +257,12 @@ inline int get_total_energy(plane_t *plane,
     double totenergy = 0;
 #endif
 
-    // HINT: you may attempt to
-    //       (i)  manually unroll the loop
-    //       (ii) ask the compiler to do it
-    // for instance
-    // #pragma GCC unroll 4
-    #pragma omp parallel for reduction(+: totenergy) collapse(2) schedule(static)
+// HINT: you may attempt to
+//       (i)  manually unroll the loop
+//       (ii) ask the compiler to do it
+// for instance
+// #pragma GCC unroll 4
+#pragma omp parallel for reduction(+ : totenergy) collapse(2) schedule(static)
     for (int j = 1; j <= ysize; j++)
         for (int i = 1; i <= xsize; i++)
             totenergy += data[IDX(i, j)];

@@ -8,6 +8,7 @@
  */
 
 #include "stencil_template_parallel.h"
+#include <immintrin.h>
 
 // ------------------------------------------------------------------
 // ------------------------------------------------------------------
@@ -295,6 +296,58 @@ inline double stencil_computation(const double *restrict old,
   return old[idx] * 0.5 + (old[idx - 1] + old[idx + 1] +
                            old[idx - fxsize] + old[idx + fxsize]) *
                               0.125;
+}
+
+inline int update_inner_plane_simd(const plane_t *oldplane,
+                                   plane_t *newplane)
+// This code is left here for reference. I don't call this function since, after
+// doing test on my local machine, it provided no speedup in the execution.
+// This is because the compiler, with the flag -march=native, already implements
+// vectorized instructions.
+{
+  uint register fxsize = oldplane->size[_x_] + 2;
+  // uint register fysize = oldplane->size[_y_] + 2;
+
+  uint register xsize = oldplane->size[_x_];
+  uint register ysize = oldplane->size[_y_];
+
+#define IDX(i, j) ((j) * fxsize + (i))
+
+  double *restrict old = oldplane->data;
+  double *restrict new = newplane->data;
+
+  const uint simd_width = 4;
+  const uint simd_end = xsize - 1 - ((xsize - 2) % simd_width);
+
+#pragma omp parallel for
+  for (uint j = 2; j <= ysize - 1; j++)
+  {
+    uint i = 2;
+    // SIMD loop
+    for (; i <= simd_end; i += simd_width)
+    {
+      // Get all the "tiles"
+      __m256d center = _mm256_loadu_pd(&old[IDX(i, j)]);
+      __m256d left = _mm256_loadu_pd(&old[IDX(i - 1, j)]);
+      __m256d right = _mm256_loadu_pd(&old[IDX(i + 1, j)]);
+      __m256d up = _mm256_loadu_pd(&old[IDX(i, j - 1)]);
+      __m256d down = _mm256_loadu_pd(&old[IDX(i, j + 1)]);
+
+      __m256d res = _mm256_add_pd(_mm256_mul_pd(center, _mm256_set1_pd(0.5)),
+                                  _mm256_mul_pd(_mm256_add_pd(_mm256_add_pd(left, right),
+                                                              _mm256_add_pd(up, down)),
+                                                _mm256_set1_pd(0.125)));
+      _mm256_storeu_pd(&new[IDX(i, j)], res);
+    }
+    // TODO: loop the remainig "tiles" in a scalar way
+    for (; i <= xsize - 1; i++)
+    {
+      new[IDX(i, j)] = stencil_computation(old, fxsize, i, j);
+    }
+  }
+
+#undef IDX
+  return 0;
 }
 
 inline int update_inner_plane(const plane_t *oldplane,
