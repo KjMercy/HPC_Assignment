@@ -54,11 +54,6 @@ extern void zero_borders(plane_t *, int *, vec2_t);
 extern inline int update_inner_plane_simd(const plane_t *,
                                           plane_t *);
 
-extern inline int update_border_plane_simd(const int,
-                                           const vec2_t,
-                                           const plane_t *,
-                                           plane_t *);
-
 extern inline double stencil_computation(const double *restrict,
                                          const uint,
                                          const uint,
