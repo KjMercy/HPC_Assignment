@@ -6,7 +6,7 @@
 #SBATCH --mem=0                     # use all available memory
 #SBATCH --partition=EPYC
 #SBATCH -t 00:01:00                 # 5 minutes for profiling and test runs
-#SBATCH --job-name=testing
+#SBATCH --job-name=Strong_scaling
 
 # Set OpenMP variables
 export OMP_PLACES=cores
@@ -17,4 +17,4 @@ export OMP_DISPLAY_AFFINITY=TRUE
 module load openMPI/5.0.5
 
 mpicc -D_XOPEN_SOURCE=700 -o main -march=native -O3 -std=c17 -fopenmp -Iinclude src/stencil_template_parallel.c
-srun --ntasks=16 --cpus-per-task=16  --cpu-bind=cores  ./main -p 0 -o 0 -e 300 -v 1 > ../outputs/output_strong_2_node_8taskpernode_16cpupertask.log
+srun --ntasks=16 --cpus-per-task=16  --cpu-bind=cores  ./main -x 15000 -y 15000 -p 0 -o 0 -e 300 -v 1 > ../outputs/output_strong_2_node_8taskpernode_16cpupertask.log
