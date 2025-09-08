@@ -72,6 +72,7 @@ int main(int argc, char **argv)
 
   int current = OLD;
   double t1 = MPI_Wtime(); /* take wall-clock time */
+  double comm_time = 0;
 
   for (int iter = 0; iter < Niterations; ++iter)
 
@@ -91,15 +92,19 @@ int main(int argc, char **argv)
     //     (1) use Send / Recv
     //     (2) use Isend / Irecv
     //         --> can you overlap communication and compution in this way?
+    double temp1 = MPI_Wtime();
     perform_halo_comms(buffers, neighbours, &myCOMM_WORLD, reqs, planes[current].size);
+    comm_time += (MPI_Wtime() - temp1);
 
     // Let's update INNER plane
     update_inner_plane(&planes[current], &planes[!current]);
 
+    temp1 = MPI_Wtime();
     MPI_Status statuses[8];
     MPI_Waitall(8, reqs, statuses);
     // [C] copy the haloes data
     copy_halo_data(&planes[current], buffers, planes[current].size, neighbours);
+    comm_time += (MPI_Wtime() - temp1);
 
     // Finally let's update BORDERs
     update_border_plane(periodic, N, &planes[current], &planes[!current]);
@@ -118,13 +123,13 @@ int main(int argc, char **argv)
     /*  Dump of data for plotting
         Credits: Davide Zorzetto
     */
-    char filename[100];
-    sprintf(filename, "./data_parallel/%d_plane_%05d.bin", Rank, iter);
-    int dump_status = dump(planes[!current].data, planes[!current].size, filename);
-    if (dump_status != 0)
-    {
-      fprintf(stderr, "Error in dump_status. Exit with %d\n", dump_status);
-    }
+    // char filename[100];
+    // sprintf(filename, "./data_parallel/%d_plane_%05d.bin", Rank, iter);
+    // int dump_status = dump(planes[!current].data, planes[!current].size, filename);
+    // if (dump_status != 0)
+    // {
+    //   fprintf(stderr, "Error in dump_status. Exit with %d\n", dump_status);
+    // }
     /******************** */
 
     /* swap plane indexes for the new iteration */
@@ -137,6 +142,19 @@ int main(int argc, char **argv)
   output_energy_stat(-1, &planes[!current], Niterations * Nsources * energy_per_source, Rank, &myCOMM_WORLD);
 
   memory_release(planes, buffers);
+
+  double comms_sum = 0.0;
+  double total_time = 0.0;
+  MPI_Reduce(&comm_time, &comms_sum, 1, MPI_DOUBLE, MPI_SUM, 0, myCOMM_WORLD);
+  MPI_Reduce(&t1, &total_time, 1, MPI_DOUBLE, MPI_SUM, 0, myCOMM_WORLD);
+
+  if (Rank == 0)
+  {
+    int P;
+    MPI_Comm_size(myCOMM_WORLD, &P);
+    printf("Total time,Comms time\n");
+    printf("%.6f,%.6f\n\n", total_time/(double)P, comms_sum/(double)P);
+  }
 
   MPI_Finalize();
   return 0;
