@@ -144,16 +144,16 @@ int main(int argc, char **argv)
   memory_release(planes, buffers);
 
   double comms_sum = 0.0;
-  double total_time = 0.0;
+  double comp_time = 0.0;
   MPI_Reduce(&comm_time, &comms_sum, 1, MPI_DOUBLE, MPI_SUM, 0, myCOMM_WORLD);
-  MPI_Reduce(&t1, &total_time, 1, MPI_DOUBLE, MPI_SUM, 0, myCOMM_WORLD);
+  MPI_Reduce(&t1, &comp_time, 1, MPI_DOUBLE, MPI_SUM, 0, myCOMM_WORLD);
 
   if (Rank == 0)
   {
     int P;
     MPI_Comm_size(myCOMM_WORLD, &P);
-    printf("Total time,Comms time\n");
-    printf("%.6f,%.6f\n\n", total_time/(double)P, comms_sum/(double)P);
+    printf("Comp time,Comms time\n");
+    printf("%.6f,%.6f\n\n", comp_time/(double)P, comms_sum/(double)P);
   }
 
   MPI_Finalize();
