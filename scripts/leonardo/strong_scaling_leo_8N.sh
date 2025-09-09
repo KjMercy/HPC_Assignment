@@ -18,8 +18,8 @@ export OMP_DISPLAY_AFFINITY=TRUE
 
 mpicc -D_XOPEN_SOURCE=700 -o main -march=native -O3 -std=c17 -fopenmp -Iinclude src/stencil_template_parallel.c
 
-start_time = $(date +%s.%N)
+start_time=$(date +%s.%N)
 srun --ntasks=64 --cpus-per-task=14 --cpu-bind=cores  ./main -x 30000 -y 30000 -p 0 -o 0 -e 300 -v 1 > ../outputs/output_strong_8_node_8taskpernode_14cpupertask.log
-end_time = $(date +%s.%N)
+end_time=$(date +%s.%N)
 tot_time=$(echo "$end_time - $start_time" | bc)
 echo "Total_time: ${tot_time}" >> ../outputs/output_strong_8_node_8taskpernode_14cpupertask.log
