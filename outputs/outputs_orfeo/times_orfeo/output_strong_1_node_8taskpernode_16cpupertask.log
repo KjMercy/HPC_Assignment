@@ -1,0 +1,30 @@
+Tasks are decomposed in a grid 4 x 2
+
+Task    0 :: 	grid coordinates :   0,   0
+	neighbours: N   -2    E    1    S    4    W   -2
+Task    1 :: 	grid coordinates :   1,   0
+	neighbours: N   -2    E    2    S    5    W    0
+Task    2 :: 	grid coordinates :   2,   0
+	neighbours: N   -2    E    3    S    6    W    1
+Task    3 :: 	grid coordinates :   3,   0
+	neighbours: N   -2    E   -2    S    7    W    2
+Task    4 :: 	grid coordinates :   0,   1
+	neighbours: N    0    E    5    S   -2    W   -2
+Task    5 :: 	grid coordinates :   1,   1
+	neighbours: N    1    E    6    S   -2    W    4
+Task    6 :: 	grid coordinates :   2,   1
+	neighbours: N    2    E    7    S   -2    W    5
+Task    7 :: 	grid coordinates :   3,   1
+	neighbours: N    3    E   -2    S   -2    W    6
+---------Rank: 0 	 Elapsed time:18.757724---------
+---------Rank: 3 	 Elapsed time:18.757693---------
+---------Rank: 7 	 Elapsed time:18.757734---------
+---------Rank: 5 	 Elapsed time:18.758042---------
+total injected energy is 300000, system energy is 299617 ( in avg 0.0106531 per grid point)
+Total time,Comms time
+18.757865,0.514589
+
+---------Rank: 4 	 Elapsed time:18.757906---------
+---------Rank: 6 	 Elapsed time:18.758016---------
+---------Rank: 2 	 Elapsed time:18.757806---------
+---------Rank: 1 	 Elapsed time:18.757997---------

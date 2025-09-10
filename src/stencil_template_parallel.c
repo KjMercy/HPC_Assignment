@@ -608,10 +608,11 @@ int initialize(MPI_Comm *Comm,
     return 1;
   }
 
-  if (*Nsources <= 0 || *Nsources > (int)((*S)[_x_] * (*S)[_y_]))
+  if (*Nsources <= 0 || *Nsources > (uint)((*S)[_x_] * (*S)[_y_]))
   {
     if (Me == 0)
       fprintf(stderr, "Invalid number of sources: must be 0 < Nsources < gridsize\n");
+      fprintf(stderr, "");
     return 1;
   }
 

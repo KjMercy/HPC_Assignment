@@ -1,0 +1,6 @@
+Tasks are decomposed in a grid 1 x 1
+
+Task    0 :: 	grid coordinates :   0,   0
+	neighbours: N   -2    E   -2    S   -2    W   -2
+---------Rank: 0 	 Elapsed time:32.419459---------
+total injected energy is 300000, system energy is 299594 ( in avg 0.00299594 per grid point)

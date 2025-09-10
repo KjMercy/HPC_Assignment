@@ -1,0 +1,391 @@
+Tasks are decomposed in a grid 16 x 8
+
+Task    8 :: 	grid coordinates :   8,   0
+	neighbours: N   -2    E    9    S   24    W    7
+Task   16 :: 	grid coordinates :   0,   1
+	neighbours: N    0    E   17    S   32    W   -2
+Task   24 :: 	grid coordinates :   8,   1
+	neighbours: N    8    E   25    S   40    W   23
+Task   32 :: 	grid coordinates :   0,   2
+	neighbours: N   16    E   33    S   48    W   -2
+Task   40 :: 	grid coordinates :   8,   2
+	neighbours: N   24    E   41    S   56    W   39
+Task   48 :: 	grid coordinates :   0,   3
+	neighbours: N   32    E   49    S   64    W   -2
+Task   56 :: 	grid coordinates :   8,   3
+	neighbours: N   40    E   57    S   72    W   55
+Task   64 :: 	grid coordinates :   0,   4
+	neighbours: N   48    E   65    S   80    W   -2
+Task   72 :: 	grid coordinates :   8,   4
+	neighbours: N   56    E   73    S   88    W   71
+Task   80 :: 	grid coordinates :   0,   5
+	neighbours: N   64    E   81    S   96    W   -2
+Task   88 :: 	grid coordinates :   8,   5
+	neighbours: N   72    E   89    S  104    W   87
+Task   96 :: 	grid coordinates :   0,   6
+	neighbours: N   80    E   97    S  112    W   -2
+Task  104 :: 	grid coordinates :   8,   6
+	neighbours: N   88    E  105    S  120    W  103
+Task  112 :: 	grid coordinates :   0,   7
+	neighbours: N   96    E  113    S   -2    W   -2
+Task  120 :: 	grid coordinates :   8,   7
+	neighbours: N  104    E  121    S   -2    W  119
+Task   33 :: 	grid coordinates :   1,   2
+	neighbours: N   17    E   34    S   49    W   32
+Task   17 :: 	grid coordinates :   1,   1
+	neighbours: N    1    E   18    S   33    W   16
+Task   34 :: 	grid coordinates :   2,   2
+	neighbours: N   18    E   35    S   50    W   33
+Task   18 :: 	grid coordinates :   2,   1
+	neighbours: N    2    E   19    S   34    W   17
+Task   35 :: 	grid coordinates :   3,   2
+	neighbours: N   19    E   36    S   51    W   34
+Task   19 :: 	grid coordinates :   3,   1
+	neighbours: N    3    E   20    S   35    W   18
+Task   36 :: 	grid coordinates :   4,   2
+	neighbours: N   20    E   37    S   52    W   35
+Task   20 :: 	grid coordinates :   4,   1
+	neighbours: N    4    E   21    S   36    W   19
+Task   37 :: 	grid coordinates :   5,   2
+	neighbours: N   21    E   38    S   53    W   36
+Task   21 :: 	grid coordinates :   5,   1
+	neighbours: N    5    E   22    S   37    W   20
+Task   38 :: 	grid coordinates :   6,   2
+	neighbours: N   22    E   39    S   54    W   37
+Task   22 :: 	grid coordinates :   6,   1
+	neighbours: N    6    E   23    S   38    W   21
+Task   39 :: 	grid coordinates :   7,   2
+	neighbours: N   23    E   40    S   55    W   38
+Task   23 :: 	grid coordinates :   7,   1
+	neighbours: N    7    E   24    S   39    W   22
+Task   65 :: 	grid coordinates :   1,   4
+	neighbours: N   49    E   66    S   81    W   64
+Task    9 :: 	grid coordinates :   9,   0
+	neighbours: N   -2    E   10    S   25    W    8
+Task   66 :: 	grid coordinates :   2,   4
+	neighbours: N   50    E   67    S   82    W   65
+Task   10 :: 	grid coordinates :  10,   0
+	neighbours: N   -2    E   11    S   26    W    9
+Task   67 :: 	grid coordinates :   3,   4
+	neighbours: N   51    E   68    S   83    W   66
+Task   11 :: 	grid coordinates :  11,   0
+	neighbours: N   -2    E   12    S   27    W   10
+Task   68 :: 	grid coordinates :   4,   4
+	neighbours: N   52    E   69    S   84    W   67
+Task   12 :: 	grid coordinates :  12,   0
+	neighbours: N   -2    E   13    S   28    W   11
+Task   69 :: 	grid coordinates :   5,   4
+	neighbours: N   53    E   70    S   85    W   68
+Task   13 :: 	grid coordinates :  13,   0
+	neighbours: N   -2    E   14    S   29    W   12
+Task   70 :: 	grid coordinates :   6,   4
+	neighbours: N   54    E   71    S   86    W   69
+Task   14 :: 	grid coordinates :  14,   0
+	neighbours: N   -2    E   15    S   30    W   13
+Task   71 :: 	grid coordinates :   7,   4
+	neighbours: N   55    E   72    S   87    W   70
+Task   15 :: 	grid coordinates :  15,   0
+	neighbours: N   -2    E   -2    S   31    W   14
+Task   89 :: 	grid coordinates :   9,   5
+	neighbours: N   73    E   90    S  105    W   88
+Task   57 :: 	grid coordinates :   9,   3
+	neighbours: N   41    E   58    S   73    W   56
+Task  121 :: 	grid coordinates :   9,   7
+	neighbours: N  105    E  122    S   -2    W  120
+Task   97 :: 	grid coordinates :   1,   6
+	neighbours: N   81    E   98    S  113    W   96
+Task  105 :: 	grid coordinates :   9,   6
+	neighbours: N   89    E  106    S  121    W  104
+Task   41 :: 	grid coordinates :   9,   2
+	neighbours: N   25    E   42    S   57    W   40
+Task   73 :: 	grid coordinates :   9,   4
+	neighbours: N   57    E   74    S   89    W   72
+Task  113 :: 	grid coordinates :   1,   7
+	neighbours: N   97    E  114    S   -2    W  112
+Task   25 :: 	grid coordinates :   9,   1
+	neighbours: N    9    E   26    S   41    W   24
+Task   81 :: 	grid coordinates :   1,   5
+	neighbours: N   65    E   82    S   97    W   80
+Task   49 :: 	grid coordinates :   1,   3
+	neighbours: N   33    E   50    S   65    W   48
+Task    0 :: 	grid coordinates :   0,   0
+	neighbours: N   -2    E    1    S   16    W   -2
+Task   90 :: 	grid coordinates :  10,   5
+	neighbours: N   74    E   91    S  106    W   89
+Task   58 :: 	grid coordinates :  10,   3
+	neighbours: N   42    E   59    S   74    W   57
+Task  122 :: 	grid coordinates :  10,   7
+	neighbours: N  106    E  123    S   -2    W  121
+Task   98 :: 	grid coordinates :   2,   6
+	neighbours: N   82    E   99    S  114    W   97
+Task  106 :: 	grid coordinates :  10,   6
+	neighbours: N   90    E  107    S  122    W  105
+Task   42 :: 	grid coordinates :  10,   2
+	neighbours: N   26    E   43    S   58    W   41
+Task   74 :: 	grid coordinates :  10,   4
+	neighbours: N   58    E   75    S   90    W   73
+Task  114 :: 	grid coordinates :   2,   7
+	neighbours: N   98    E  115    S   -2    W  113
+Task   26 :: 	grid coordinates :  10,   1
+	neighbours: N   10    E   27    S   42    W   25
+Task   82 :: 	grid coordinates :   2,   5
+	neighbours: N   66    E   83    S   98    W   81
+Task   50 :: 	grid coordinates :   2,   3
+	neighbours: N   34    E   51    S   66    W   49
+Task    1 :: 	grid coordinates :   1,   0
+	neighbours: N   -2    E    2    S   17    W    0
+Task   91 :: 	grid coordinates :  11,   5
+	neighbours: N   75    E   92    S  107    W   90
+Task   59 :: 	grid coordinates :  11,   3
+	neighbours: N   43    E   60    S   75    W   58
+Task  123 :: 	grid coordinates :  11,   7
+	neighbours: N  107    E  124    S   -2    W  122
+Task   99 :: 	grid coordinates :   3,   6
+	neighbours: N   83    E  100    S  115    W   98
+Task  107 :: 	grid coordinates :  11,   6
+	neighbours: N   91    E  108    S  123    W  106
+Task   43 :: 	grid coordinates :  11,   2
+	neighbours: N   27    E   44    S   59    W   42
+Task   75 :: 	grid coordinates :  11,   4
+	neighbours: N   59    E   76    S   91    W   74
+Task  115 :: 	grid coordinates :   3,   7
+	neighbours: N   99    E  116    S   -2    W  114
+Task   27 :: 	grid coordinates :  11,   1
+	neighbours: N   11    E   28    S   43    W   26
+Task   83 :: 	grid coordinates :   3,   5
+	neighbours: N   67    E   84    S   99    W   82
+Task   51 :: 	grid coordinates :   3,   3
+	neighbours: N   35    E   52    S   67    W   50
+Task    2 :: 	grid coordinates :   2,   0
+	neighbours: N   -2    E    3    S   18    W    1
+Task   92 :: 	grid coordinates :  12,   5
+	neighbours: N   76    E   93    S  108    W   91
+Task   60 :: 	grid coordinates :  12,   3
+	neighbours: N   44    E   61    S   76    W   59
+Task  124 :: 	grid coordinates :  12,   7
+	neighbours: N  108    E  125    S   -2    W  123
+Task  100 :: 	grid coordinates :   4,   6
+	neighbours: N   84    E  101    S  116    W   99
+Task  108 :: 	grid coordinates :  12,   6
+	neighbours: N   92    E  109    S  124    W  107
+Task   44 :: 	grid coordinates :  12,   2
+	neighbours: N   28    E   45    S   60    W   43
+Task   76 :: 	grid coordinates :  12,   4
+	neighbours: N   60    E   77    S   92    W   75
+Task  116 :: 	grid coordinates :   4,   7
+	neighbours: N  100    E  117    S   -2    W  115
+Task   28 :: 	grid coordinates :  12,   1
+	neighbours: N   12    E   29    S   44    W   27
+Task   84 :: 	grid coordinates :   4,   5
+	neighbours: N   68    E   85    S  100    W   83
+Task   52 :: 	grid coordinates :   4,   3
+	neighbours: N   36    E   53    S   68    W   51
+Task    3 :: 	grid coordinates :   3,   0
+	neighbours: N   -2    E    4    S   19    W    2
+Task   93 :: 	grid coordinates :  13,   5
+	neighbours: N   77    E   94    S  109    W   92
+Task   61 :: 	grid coordinates :  13,   3
+	neighbours: N   45    E   62    S   77    W   60
+Task  125 :: 	grid coordinates :  13,   7
+	neighbours: N  109    E  126    S   -2    W  124
+Task  101 :: 	grid coordinates :   5,   6
+	neighbours: N   85    E  102    S  117    W  100
+Task  109 :: 	grid coordinates :  13,   6
+	neighbours: N   93    E  110    S  125    W  108
+Task   45 :: 	grid coordinates :  13,   2
+	neighbours: N   29    E   46    S   61    W   44
+Task   77 :: 	grid coordinates :  13,   4
+	neighbours: N   61    E   78    S   93    W   76
+Task  117 :: 	grid coordinates :   5,   7
+	neighbours: N  101    E  118    S   -2    W  116
+Task   29 :: 	grid coordinates :  13,   1
+	neighbours: N   13    E   30    S   45    W   28
+Task   85 :: 	grid coordinates :   5,   5
+	neighbours: N   69    E   86    S  101    W   84
+Task   53 :: 	grid coordinates :   5,   3
+	neighbours: N   37    E   54    S   69    W   52
+Task    4 :: 	grid coordinates :   4,   0
+	neighbours: N   -2    E    5    S   20    W    3
+Task   94 :: 	grid coordinates :  14,   5
+	neighbours: N   78    E   95    S  110    W   93
+Task   62 :: 	grid coordinates :  14,   3
+	neighbours: N   46    E   63    S   78    W   61
+Task  126 :: 	grid coordinates :  14,   7
+	neighbours: N  110    E  127    S   -2    W  125
+Task  102 :: 	grid coordinates :   6,   6
+	neighbours: N   86    E  103    S  118    W  101
+Task  110 :: 	grid coordinates :  14,   6
+	neighbours: N   94    E  111    S  126    W  109
+Task   46 :: 	grid coordinates :  14,   2
+	neighbours: N   30    E   47    S   62    W   45
+Task   78 :: 	grid coordinates :  14,   4
+	neighbours: N   62    E   79    S   94    W   77
+Task  118 :: 	grid coordinates :   6,   7
+	neighbours: N  102    E  119    S   -2    W  117
+Task   30 :: 	grid coordinates :  14,   1
+	neighbours: N   14    E   31    S   46    W   29
+Task   86 :: 	grid coordinates :   6,   5
+	neighbours: N   70    E   87    S  102    W   85
+Task   54 :: 	grid coordinates :   6,   3
+	neighbours: N   38    E   55    S   70    W   53
+Task    5 :: 	grid coordinates :   5,   0
+	neighbours: N   -2    E    6    S   21    W    4
+Task   95 :: 	grid coordinates :  15,   5
+	neighbours: N   79    E   -2    S  111    W   94
+Task   63 :: 	grid coordinates :  15,   3
+	neighbours: N   47    E   -2    S   79    W   62
+Task  127 :: 	grid coordinates :  15,   7
+	neighbours: N  111    E   -2    S   -2    W  126
+Task  103 :: 	grid coordinates :   7,   6
+	neighbours: N   87    E  104    S  119    W  102
+Task  111 :: 	grid coordinates :  15,   6
+	neighbours: N   95    E   -2    S  127    W  110
+Task   47 :: 	grid coordinates :  15,   2
+	neighbours: N   31    E   -2    S   63    W   46
+Task   79 :: 	grid coordinates :  15,   4
+	neighbours: N   63    E   -2    S   95    W   78
+Task  119 :: 	grid coordinates :   7,   7
+	neighbours: N  103    E  120    S   -2    W  118
+Task   31 :: 	grid coordinates :  15,   1
+	neighbours: N   15    E   -2    S   47    W   30
+Task   87 :: 	grid coordinates :   7,   5
+	neighbours: N   71    E   88    S  103    W   86
+Task   55 :: 	grid coordinates :   7,   3
+	neighbours: N   39    E   56    S   71    W   54
+Task    6 :: 	grid coordinates :   6,   0
+	neighbours: N   -2    E    7    S   22    W    5
+Task    7 :: 	grid coordinates :   7,   0
+	neighbours: N   -2    E    8    S   23    W    6
+---------Rank: 0 	 Elapsed time:10.828295---------
+---------Rank: 51 	 Elapsed time:10.817469---------
+---------Rank: 38 	 Elapsed time:10.830229---------
+---------Rank: 50 	 Elapsed time:10.815913---------
+---------Rank: 89 	 Elapsed time:10.809985---------
+---------Rank: 49 	 Elapsed time:10.814832---------
+---------Rank: 92 	 Elapsed time:10.810817---------
+---------Rank: 93 	 Elapsed time:10.810859---------
+---------Rank: 90 	 Elapsed time:10.811539---------
+---------Rank: 95 	 Elapsed time:10.812187---------
+---------Rank: 53 	 Elapsed time:10.816196---------
+---------Rank: 88 	 Elapsed time:10.808570---------
+---------Rank: 118 	 Elapsed time:10.812228---------
+---------Rank: 91 	 Elapsed time:10.812762---------
+---------Rank: 112 	 Elapsed time:10.815445---------
+---------Rank: 113 	 Elapsed time:10.815994---------
+---------Rank: 115 	 Elapsed time:10.816225---------
+---------Rank: 116 	 Elapsed time:10.813547---------
+---------Rank: 117 	 Elapsed time:10.812536---------
+---------Rank: 64 	 Elapsed time:10.807828---------
+---------Rank: 119 	 Elapsed time:10.811538---------
+---------Rank: 65 	 Elapsed time:10.808264---------
+---------Rank: 52 	 Elapsed time:10.815667---------
+---------Rank: 66 	 Elapsed time:10.808775---------
+---------Rank: 54 	 Elapsed time:10.817190---------
+---------Rank: 67 	 Elapsed time:10.809536---------
+---------Rank: 55 	 Elapsed time:10.817193---------
+---------Rank: 61 	 Elapsed time:10.812218---------
+---------Rank: 68 	 Elapsed time:10.807831---------
+---------Rank: 69 	 Elapsed time:10.808255---------
+---------Rank: 71 	 Elapsed time:10.809415---------
+---------Rank: 33 	 Elapsed time:10.828224---------
+---------Rank: 57 	 Elapsed time:10.817333---------
+---------Rank: 58 	 Elapsed time:10.816203---------
+---------Rank: 59 	 Elapsed time:10.815538---------
+---------Rank: 60 	 Elapsed time:10.813098---------
+---------Rank: 62 	 Elapsed time:10.810765---------
+---------Rank: 63 	 Elapsed time:10.817230---------
+---------Rank: 34 	 Elapsed time:10.829462---------
+---------Rank: 35 	 Elapsed time:10.830253---------
+---------Rank: 36 	 Elapsed time:10.828856---------
+---------Rank: 37 	 Elapsed time:10.829307---------
+---------Rank: 39 	 Elapsed time:10.830313---------
+---------Rank: 96 	 Elapsed time:10.806007---------
+---------Rank: 97 	 Elapsed time:10.806674---------
+---------Rank: 98 	 Elapsed time:10.806678---------
+---------Rank: 99 	 Elapsed time:10.806687---------
+---------Rank: 100 	 Elapsed time:10.803925---------
+---------Rank: 101 	 Elapsed time:10.803759---------
+---------Rank: 102 	 Elapsed time:10.804242---------
+---------Rank: 74 	 Elapsed time:10.812312---------
+---------Rank: 9 	 Elapsed time:10.832203---------
+total injected energy is 300000, system energy is 299925 ( in avg 0.010664 per grid point)
+Comp time,Comms time
+10.817501,0.568602
+
+---------Rank: 2 	 Elapsed time:10.830561---------
+---------Rank: 3 	 Elapsed time:10.831410---------
+---------Rank: 4 	 Elapsed time:10.830565---------
+---------Rank: 5 	 Elapsed time:10.831070---------
+---------Rank: 6 	 Elapsed time:10.832045---------
+---------Rank: 7 	 Elapsed time:10.832060---------
+---------Rank: 13 	 Elapsed time:10.826214---------
+---------Rank: 72 	 Elapsed time:10.810090---------
+---------Rank: 24 	 Elapsed time:10.841825---------
+---------Rank: 25 	 Elapsed time:10.841815---------
+---------Rank: 26 	 Elapsed time:10.840614---------
+---------Rank: 28 	 Elapsed time:10.837313---------
+---------Rank: 29 	 Elapsed time:10.835886---------
+---------Rank: 30 	 Elapsed time:10.834363---------
+---------Rank: 31 	 Elapsed time:10.837666---------
+---------Rank: 114 	 Elapsed time:10.815972---------
+---------Rank: 40 	 Elapsed time:10.830577---------
+---------Rank: 70 	 Elapsed time:10.809386---------
+---------Rank: 41 	 Elapsed time:10.830272---------
+---------Rank: 44 	 Elapsed time:10.826204---------
+---------Rank: 46 	 Elapsed time:10.824036---------
+---------Rank: 42 	 Elapsed time:10.829320---------
+---------Rank: 43 	 Elapsed time:10.828369---------
+---------Rank: 47 	 Elapsed time:10.824581---------
+---------Rank: 73 	 Elapsed time:10.811385---------
+---------Rank: 75 	 Elapsed time:10.813712---------
+---------Rank: 76 	 Elapsed time:10.812580---------
+---------Rank: 77 	 Elapsed time:10.811760---------
+---------Rank: 79 	 Elapsed time:10.811019---------
+---------Rank: 8 	 Elapsed time:10.832340---------
+---------Rank: 10 	 Elapsed time:10.831451---------
+---------Rank: 11 	 Elapsed time:10.830760---------
+---------Rank: 12 	 Elapsed time:10.827683---------
+---------Rank: 15 	 Elapsed time:10.826422---------
+---------Rank: 108 	 Elapsed time:10.810790---------
+---------Rank: 48 	 Elapsed time:10.813681---------
+---------Rank: 105 	 Elapsed time:10.808809---------
+---------Rank: 81 	 Elapsed time:10.795192---------
+---------Rank: 106 	 Elapsed time:10.810301---------
+---------Rank: 107 	 Elapsed time:10.811371---------
+---------Rank: 103 	 Elapsed time:10.804327---------
+---------Rank: 109 	 Elapsed time:10.809571---------
+---------Rank: 110 	 Elapsed time:10.808348---------
+---------Rank: 111 	 Elapsed time:10.808981---------
+---------Rank: 125 	 Elapsed time:10.796945---------
+---------Rank: 82 	 Elapsed time:10.795287---------
+---------Rank: 83 	 Elapsed time:10.796621---------
+---------Rank: 84 	 Elapsed time:10.794658---------
+---------Rank: 85 	 Elapsed time:10.795254---------
+---------Rank: 86 	 Elapsed time:10.796259---------
+---------Rank: 87 	 Elapsed time:10.796888---------
+---------Rank: 1 	 Elapsed time:10.829342---------
+---------Rank: 120 	 Elapsed time:10.800267---------
+---------Rank: 121 	 Elapsed time:10.799477---------
+---------Rank: 122 	 Elapsed time:10.799164---------
+---------Rank: 123 	 Elapsed time:10.798597---------
+---------Rank: 124 	 Elapsed time:10.797588---------
+---------Rank: 127 	 Elapsed time:10.801514---------
+---------Rank: 27 	 Elapsed time:10.839880---------
+---------Rank: 45 	 Elapsed time:10.824615---------
+---------Rank: 32 	 Elapsed time:10.827142---------
+---------Rank: 94 	 Elapsed time:10.809196---------
+---------Rank: 56 	 Elapsed time:10.817259---------
+---------Rank: 80 	 Elapsed time:10.794391---------
+---------Rank: 16 	 Elapsed time:10.836767---------
+---------Rank: 17 	 Elapsed time:10.838264---------
+---------Rank: 18 	 Elapsed time:10.839158---------
+---------Rank: 20 	 Elapsed time:10.840221---------
+---------Rank: 21 	 Elapsed time:10.840388---------
+---------Rank: 22 	 Elapsed time:10.841757---------
+---------Rank: 23 	 Elapsed time:10.841671---------
+---------Rank: 78 	 Elapsed time:10.810420---------
+---------Rank: 14 	 Elapsed time:10.825232---------
+---------Rank: 104 	 Elapsed time:10.808283---------
+---------Rank: 126 	 Elapsed time:10.795356---------
+---------Rank: 19 	 Elapsed time:10.841153---------
+Total_time: 12.751888898
