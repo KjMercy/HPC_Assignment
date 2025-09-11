@@ -9,6 +9,10 @@ math: mathjax
 
 Mersimoski Kjanija
 
+[KjMercy/HPC_Assignment](https://github.com/KjMercy/HPC_Assignment)
+
+![bg right 50%](frame.png)
+
 ---
 
 # Parallelization of Heat Equation
