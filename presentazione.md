@@ -34,6 +34,9 @@ Mersimoski Kjanija
 
 # MPI
 
+- Domain decomposition
+  - Subdomain per task
+  - Communication for data exchange
 - Communication-computation **overlap**
 - Non-blocking calls for neighbouring communication
 
@@ -230,7 +233,21 @@ Where $\text{nt}_0=8$ and $x_0=y_0=15000$
 
 ---
 
-# Troubleshooting 
+# Valgrind Analysis
+
+### Cache Miss Rates (Cachegrind)
+
+| Cache Level        | Instructions | Data (Reads) | Data (Writes) | Data (Total) |
+|--------------------|--------------|--------------|---------------|--------------|
+| **L1** (L2 run)    | 0.03%        | 2.9%         | 7.8%          | 4.0%         |
+| **L1** (L3 run)    | 0.02%        | 2.9%         | 7.8%          | 4.0%         |
+| **L2** (LL in run 1)| 0.01%       | 2.3%         | 7.6%          | 3.5%         |
+| **L3** (LL in run 2)| 0.00%       | 0.1%         | 0.5%          | 0.2%         |
+
+
+---
+
+# Testing and Troubleshooting
 
 - man
 - Davide's plot
@@ -267,7 +284,4 @@ mpicc -O3 -march=native -fopenmp -S -fverbose-asm -masm=intel -Iinclude src/sten
 
 ---
 
-# Other possible approaches
-
-- adasd
-- sadasd
+# Thank you!
